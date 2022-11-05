@@ -17,7 +17,7 @@ export class TutorialDetailsComponent implements OnInit {
     description: '',
     published: false
   };
-  
+
   message = '';
 
   constructor(

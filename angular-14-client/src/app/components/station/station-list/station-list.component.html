@@ -1,0 +1,43 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by id"
+        [(ngModel)]="id"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          (click)="searchId()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Stations List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let station of stations; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveStation(station, i)"
+      >
+        {{ station.name }}
+      </li>
+    </ul>
+
+    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllStations()">
+      Remove All
+    </button>
+  </div>
+  <div class="col-md-6">
+    <app-station-details
+      [viewMode]="true"
+      [currentStation]="currentStation"
+    ></app-station-details>
+  </div>
+</div>

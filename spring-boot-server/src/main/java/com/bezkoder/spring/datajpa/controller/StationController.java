@@ -1,7 +1,6 @@
 package com.bezkoder.spring.datajpa.controller;
 
 import com.bezkoder.spring.datajpa.model.Station;
-import com.bezkoder.spring.datajpa.model.Tutorial;
 import com.bezkoder.spring.datajpa.model.User;
 import com.bezkoder.spring.datajpa.repository.StationRepository;
 import com.bezkoder.spring.datajpa.repository.UserRepository;

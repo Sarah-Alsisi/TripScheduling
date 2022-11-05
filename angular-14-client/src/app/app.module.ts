@@ -11,6 +11,9 @@ import { TutorialsListComponent } from './components/tutorial/tutorials-list/tut
 import { IndexComponent } from './views/index/index.component';
 import {RegisterComponent} from "./views/auth/register/register.component";
 import {ConfirmComponent} from "./views/auth/confirmation/confirm.component";
+import { StationComponent } from './components/station/station-list/station-list.component';
+import {StationDetailsComponent} from "./components/station/station-details/station-details.component";
+
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import {ConfirmComponent} from "./views/auth/confirmation/confirm.component";
     TutorialsListComponent,
     IndexComponent,
     RegisterComponent,
-    ConfirmComponent
+    ConfirmComponent,
+    StationComponent,
+    StationDetailsComponent
   ],
   imports: [
     BrowserModule,
