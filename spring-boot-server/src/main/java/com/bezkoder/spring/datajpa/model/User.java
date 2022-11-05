@@ -1,6 +1,5 @@
 package com.bezkoder.spring.datajpa.model;
 
-
 import javax.persistence.*;
 
 @Entity
@@ -9,15 +8,15 @@ public class User{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public int id;
+    public long id;
 
     @Column(name = "username")
     private String username;
     @Column(name = "password")
     private String password;
-    @Column(name = "role")
+    @Column(name = "is_admin")
     // User/admin
-    private String role;
+    private Boolean is_Admin;
     @Column(name = "is_loggedin")
     // check if Admin/User is logged in
     private Boolean is_loggedin;
@@ -27,20 +26,20 @@ public class User{
         super();
     }
     // parametrized constructor
-    public User(String username, String password, String role, boolean is_loggedin)
+    public User(String username, String password, boolean isAdmin, boolean is_loggedin)
     {
         super();
         this.username=username;
         this.password=password;
-        this.role=role;
+        this.is_Admin=isAdmin;
         this.is_loggedin=is_loggedin;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -60,12 +59,12 @@ public class User{
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
+    public Boolean getIs_Admin() {
+        return is_Admin;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setIs_Admin(Boolean is_Admin) {
+        this.is_Admin = is_Admin;
     }
 
     public Boolean getIs_loggedin() {
