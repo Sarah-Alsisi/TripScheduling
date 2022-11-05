@@ -10,6 +10,7 @@ import { TutorialDetailsComponent } from './components/tutorial/tutorial-details
 import { TutorialsListComponent } from './components/tutorial/tutorials-list/tutorials-list.component';
 import { IndexComponent } from './views/index/index.component';
 import {RegisterComponent} from "./views/auth/register/register.component";
+import {ConfirmComponent} from "./views/auth/confirmation/confirm.component";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {RegisterComponent} from "./views/auth/register/register.component";
     TutorialDetailsComponent,
     TutorialsListComponent,
     IndexComponent,
-    RegisterComponent
+    RegisterComponent,
+    ConfirmComponent
   ],
   imports: [
     BrowserModule,

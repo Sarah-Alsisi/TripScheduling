@@ -5,10 +5,12 @@ import { TutorialDetailsComponent } from './components/tutorial/tutorial-details
 import { AddTutorialComponent } from './components/tutorial/add-tutorial/add-tutorial.component';
 import { IndexComponent } from './views/index/index.component';
 import { RegisterComponent } from "./views/auth/register/register.component";
+import {ConfirmComponent} from "./views/auth/confirmation/confirm.component";
 
 const routes: Routes = [
   { path: '', component: IndexComponent},
   { path: 'register', component: RegisterComponent},
+  { path: 'success', component: ConfirmComponent},
   { path: 'tutorials', component: TutorialsListComponent },
   { path: 'tutorials/:id', component: TutorialDetailsComponent },
   { path: 'add', component: AddTutorialComponent }
