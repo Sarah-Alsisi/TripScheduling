@@ -46,7 +46,7 @@ public class UserController {
         String password = user.getPassword();
         String username = user.getUsername();
         User foundUser = userRepository.findByName(username);
-        if (foundUser.getPassword().equals(password)) {
+        if (foundUser!=null && foundUser.getPassword().equals(password)) {
             foundUser.setIs_loggedin(true);
             System.out.println("Login Successful");
             userRepository.save(foundUser);

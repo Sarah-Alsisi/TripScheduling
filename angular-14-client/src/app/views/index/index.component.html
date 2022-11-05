@@ -25,8 +25,15 @@
     margin: 0;
   }
 
-  h2 {
+  h2,h4 {
     text-align: center;
+  }
+
+  h4{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
   }
 
   p {
@@ -257,14 +264,14 @@
 </head>
 <body>
 <div class="container" id="container">
+  <div *ngIf="!loggedIn">
   <div class="form-container sign-in-container">
       <form>
         <h1>Login</h1>
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
+        <input type="text" [(ngModel)]="user.username" name="username" placeholder="Username" />
+        <input type="password" [(ngModel)]="user.password" name="password" placeholder="Password" />
         <a href="#">Forgot your password?</a>
-
-        <button>Login</button>
+        <button (click)="loginUser()">Login</button>
       </form>
 
   </div>
@@ -284,6 +291,25 @@
       </div>
     </div>
   </div>
+  </div>
+
+  <div *ngIf="loggedIn" >
+    <h4>User logged in successfully!</h4>
+
+    <div class="overlay-panel overlay-left">
+      <a [routerLink]="['/tutorials']">
+        <button class="ghost">Stations</button>
+      </a>
+    </div>
+    <div class="overlay-panel overlay-right">
+      <a [routerLink]="['/tutorials']">
+        <button class="ghost">Trips</button>
+      </a>
+    </div>
+
+  </div>
+
+
 </div>
 
 <footer>

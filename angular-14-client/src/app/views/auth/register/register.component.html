@@ -146,19 +146,19 @@
     <hr>
     <hr>
     <label id="icon" for="name"><i class="fas fa-user"></i></label>
-    <input type="text" name="name" id="name" placeholder="Username" required/>
+    <input type="text" [(ngModel)]="user.username" name="name" id="name" placeholder="Username" required/>
     <label id="icon" for="name"><i class="fas fa-unlock-alt"></i></label>
-    <input type="password" name="name" id="name" placeholder="Password" required/>
+    <input type="password" [(ngModel)]="user.password" name="name" id="name" placeholder="Password" required/>
     <hr>
     <div class="admin">
-      <input type="radio" value="none" id="admin"/>
-      <label for="admin" class="radio">Admin</label>
+      <input type="radio" [(ngModel)]="user.is_admin" value="true" id="admin"/>
+      <label for="admin"  class="radio">Admin</label>
 
     </div>
     <hr>
     <div class="btn-block">
       <a [routerLink]="['/success']">
-      <button type="submit" href="/">Submit</button>
+      <button (click)="saveUsers()" type="submit" href="/">Submit</button>
       </a>
     </div>
   </form>

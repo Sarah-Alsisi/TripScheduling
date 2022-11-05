@@ -16,7 +16,7 @@ public class User{
     private String password;
     @Column(name = "is_admin")
     // User/admin
-    private Boolean is_Admin;
+    private Boolean is_admin;
     @Column(name = "is_loggedin")
     // check if Admin/User is logged in
     private Boolean is_loggedin;
@@ -31,7 +31,7 @@ public class User{
         super();
         this.username=username;
         this.password=password;
-        this.is_Admin=isAdmin;
+        this.is_admin=isAdmin;
         this.is_loggedin=is_loggedin;
     }
 
@@ -60,11 +60,11 @@ public class User{
     }
 
     public Boolean getIs_Admin() {
-        return is_Admin;
+        return is_admin;
     }
 
     public void setIs_Admin(Boolean is_Admin) {
-        this.is_Admin = is_Admin;
+        this.is_admin = is_Admin;
     }
 
     public Boolean getIs_loggedin() {
