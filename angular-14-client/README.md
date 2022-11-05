@@ -9,7 +9,7 @@ Tutorial Application in that:
 
 ![angular-14-crud-example](angular-14-crud-example.png)
 
-Run `ng serve --port 8081` for a dev server. Navigate to `http://localhost:8081/`. The app will automatically reload if you change any of the source files.
+Run `c` for a dev server. Navigate to `http://localhost:8081/`. The app will automatically reload if you change any of the source files.
 
 For instruction, please visit:
 > [Angular example: CRUD Application with Rest API](https://www.bezkoder.com/angular-14-crud-example/)
