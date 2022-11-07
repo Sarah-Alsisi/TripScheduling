@@ -9,7 +9,7 @@ import java.util.Date;
 public class Trip {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id;
 
     @Column(name = "start_time")
@@ -18,21 +18,23 @@ public class Trip {
     @Column(name = "end_time")
     private Date end_time;
 
-    @Column(name = "from_station")
-    private String from_station;
+    @ManyToOne
+    @JoinColumn(name="to_station_id")
+    private Station to_station;
 
-    @Column(name = "to_station")
-    private String to_station;
+    @ManyToOne
+    @JoinColumn(name="from_station_id")
+    private Station from_station;
 
     public Trip() {
         super();
     }
 
-    public Trip(Date start_time, Date end_time, String from_station, String to_station) {
-        this.start_time=start_time;
-        this.end_time=end_time;
-        this.from_station=from_station;
-        this.to_station=to_station;
+    public Trip(Date start_time, Date end_time, Station from_station, Station to_station) {
+        this.start_time = start_time;
+        this.end_time = end_time;
+        this.to_station = to_station;
+        this.from_station = from_station;
     }
 
     public long getId() {
@@ -59,19 +61,19 @@ public class Trip {
         this.end_time = end_time;
     }
 
-    public String getFrom_station() {
-        return from_station;
-    }
-
-    public void setFrom_station(String from_station) {
-        this.from_station = from_station;
-    }
-
-    public String getTo_station() {
+    public Station getTo_station() {
         return to_station;
     }
 
-    public void setTo_station(String to_station) {
+    public void setTo_station(Station to_station) {
         this.to_station = to_station;
+    }
+
+    public Station getFrom_station() {
+        return from_station;
+    }
+
+    public void setFrom_station(Station from_station) {
+        this.from_station = from_station;
     }
 }
