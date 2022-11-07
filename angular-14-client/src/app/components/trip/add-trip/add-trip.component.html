@@ -1,0 +1,57 @@
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="from_station">From Station</label>
+        <input
+          type="text"
+          class="form-control"
+          id="from_station"
+          required
+          [(ngModel)]="trip.from_station"
+          name="from_station"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="to_station">To Station</label>
+        <input
+          class="form-control"
+          id="to_station"
+          required
+          [(ngModel)]="trip.to_station"
+          name="to_station"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="start_time">Start time</label>
+        <input
+          class="form-control"
+          id="start_time"
+          required
+          [(ngModel)]="trip.start_time"
+          name="start_time"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="end_time">End time</label>
+        <input
+          class="form-control"
+          id="end_time"
+          required
+          [(ngModel)]="trip.end_time"
+          name="end_time"
+        />
+      </div>
+
+      <button (click)="saveTrip()" class="btn btn-success">Submit</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>Trip was submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newTrip()">Add</button>
+    </div>
+  </div>
+</div>

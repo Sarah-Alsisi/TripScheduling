@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Station } from 'src/app/models/station.model';
-import { StationService } from 'src/app/services/station.service';
+import {Station} from "../../../models/station.model";
+import {StationService} from "../../../services/station.service";
+
 
 @Component({
-  selector: 'app-station-list',
+  selector: 'app-stations-list',
   templateUrl: './station-list.component.html',
   styleUrls: ['./station-list.component.css']
 })
-export class StationComponent implements OnInit {
-
+export class StationListComponent implements OnInit {
   stations?: Station[];
-  currentStation={};
+  currentStation: Station = {};
   currentIndex = -1;
   id = '';
 
@@ -53,7 +53,7 @@ export class StationComponent implements OnInit {
       });
   }
 
-  searchId(): void {
+  searchID(): void {
     this.currentStation = {};
     this.currentIndex = -1;
 

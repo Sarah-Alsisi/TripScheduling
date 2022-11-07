@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service'
+import {AppComponent} from "../../app.component";
 
 @Component({
   selector: "app-index",
@@ -14,7 +15,7 @@ export class IndexComponent  {
   };
   loggedIn = false;
 
-  constructor(private  userService: UserService) {}
+  constructor(private  userService: UserService, private appComponent: AppComponent) {}
 
   loginUser(): void {
     const data = {
@@ -29,6 +30,7 @@ export class IndexComponent  {
           console.log(data);
           if(res){
             this.loggedIn = true;
+            this.appComponent.update(this.loggedIn);
             console.log("logged in: true");
           }
         },

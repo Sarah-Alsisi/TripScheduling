@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Station } from '../models/station.model';
+import {Trip} from "../models/trip.model";
 
-const baseUrl = 'http://localhost:8080/api/station';
+const baseUrl = 'http://localhost:8080/api/trip';
 
 @Injectable({
   providedIn: 'root'
 })
-export class StationService {
+export class TripService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<Station[]> {
-    return this.http.get<Station[]>(`${baseUrl}/get`);
+  getAll(): Observable<Trip[]> {
+    return this.http.get<Trip[]>(`${baseUrl}/get`);
   }
 
-  get(id: any): Observable<Station> {
-    return this.http.get<Station>(`${baseUrl}/get/${id}`);
+  get(id: any): Observable<Trip> {
+    return this.http.get<Trip>(`${baseUrl}/get/${id}`);
   }
 
   create(data: any): Observable<any> {
@@ -36,8 +36,8 @@ export class StationService {
     return this.http.delete(`${baseUrl}/delete`);
   }
 
-  findById(id: any): Observable<Station[]> {
-    return this.http.get<Station[]>(`${baseUrl}/get/${id}`);
+  findById(id: any): Observable<Trip[]> {
+    return this.http.get<Trip[]>(`${baseUrl}/get/${id}`);
   }
 
 }

@@ -11,8 +11,10 @@ import { TutorialsListComponent } from './components/tutorial/tutorials-list/tut
 import { IndexComponent } from './views/index/index.component';
 import {RegisterComponent} from "./views/auth/register/register.component";
 import {ConfirmComponent} from "./views/auth/confirmation/confirm.component";
-import { StationComponent } from './components/station/station-list/station-list.component';
+import {StationListComponent} from './components/station/station-list/station-list.component';
 import {StationDetailsComponent} from "./components/station/station-details/station-details.component";
+import {AddTripComponent} from "./components/trip/add-trip/add-trip.component";
+import {AddStationComponent} from "./components/station/add-station/add-station.component";
 
 
 @NgModule({
@@ -24,8 +26,10 @@ import {StationDetailsComponent} from "./components/station/station-details/stat
     IndexComponent,
     RegisterComponent,
     ConfirmComponent,
-    StationComponent,
-    StationDetailsComponent
+    StationListComponent,
+    StationDetailsComponent,
+    AddTripComponent,
+    AddStationComponent
   ],
   imports: [
     BrowserModule,
