@@ -1,9 +1,7 @@
 package com.bezkoder.spring.datajpa.controller;
 
 import com.bezkoder.spring.datajpa.model.Station;
-import com.bezkoder.spring.datajpa.model.User;
 import com.bezkoder.spring.datajpa.repository.StationRepository;
-import com.bezkoder.spring.datajpa.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

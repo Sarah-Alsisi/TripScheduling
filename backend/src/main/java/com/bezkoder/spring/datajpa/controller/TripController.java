@@ -47,7 +47,7 @@ public class TripController {
     }
 
     @DeleteMapping("/trip/delete/{id}")
-    public ResponseEntity<HttpStatus> deleteStation(@PathVariable("id") long id) {
+    public ResponseEntity<HttpStatus> deleteTrip(@PathVariable("id") long id) {
         try {
             tripRepository.deleteById(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
