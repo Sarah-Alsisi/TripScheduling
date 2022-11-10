@@ -14,6 +14,9 @@ export class TripListComponent implements OnInit {
   currentIndex = -1;
   id = '';
 
+  search=false;
+  searchResult: any;
+
   constructor(private tripService: TripService) { }
 
   ngOnInit(): void {
@@ -26,6 +29,7 @@ export class TripListComponent implements OnInit {
         next: (data) => {
           this.trips = data;
           console.log(data);
+          this.search=false;
         },
         error: (e) => console.error(e)
       });
@@ -33,6 +37,7 @@ export class TripListComponent implements OnInit {
 
   refreshList(): void {
     this.retrieveTrips();
+    this.search=false;
     this.currentTrip = {};
     this.currentIndex = -1;
   }
@@ -61,9 +66,15 @@ export class TripListComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.trips = data;
+          this.search=true;
+          this.searchResult = data;
           console.log(data);
         },
-        error: (e) => console.error(e)
+        error: (e) => {
+          this.searchResult='-1';
+          this.search=false;
+          console.error(e)
+        }
       });
   }
 

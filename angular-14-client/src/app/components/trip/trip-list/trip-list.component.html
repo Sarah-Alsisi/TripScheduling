@@ -18,21 +18,48 @@
     </div>
   </div>
   <div class="col-md-6">
-    <h4>Trips List</h4>
-    <ul class="list-group">
+
+
+    <div *ngIf="!search && searchResult!='-1'">
+      <h4>Trips List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let trip of trips; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveStation(trip, i)"
+        >
+          {{ trip.id }}
+        </li>
+      </ul>
+    </div>
+
+    <div *ngIf="search">
+      <h4>Result</h4>
+      <ul class="list-group">
       <li
         class="list-group-item"
-        *ngFor="let trip of trips; let i = index"
-        [class.active]="i == currentIndex"
-        (click)="setActiveStation(trip, i)"
+        [class.active]="searchResult.id == currentIndex"
+        (click)="setActiveStation(searchResult, searchResult.id)"
       >
-        {{ trip.id }}
+        {{ searchResult.id }}
       </li>
-    </ul>
+        </ul>
+    </div>
 
-    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTrips()">
-      Remove All
-    </button>
+    
+
+    <div *ngIf="!search && searchResult!='-1'">
+      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTrips()">
+        Remove All
+      </button>
+    </div>
+
+    <div *ngIf="searchResult=='-1'">
+      <h4>No results found</h4>
+    </div>
+
+
   </div>
   <div class="col-md-6">
     <app-trip-details

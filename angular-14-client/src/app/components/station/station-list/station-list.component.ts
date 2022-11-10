@@ -14,6 +14,9 @@ export class StationListComponent implements OnInit {
   currentIndex = -1;
   id = '';
 
+  search=false;
+  searchResult: any;
+
   constructor(private stationService: StationService) { }
 
   ngOnInit(): void {
@@ -26,6 +29,7 @@ export class StationListComponent implements OnInit {
         next: (data) => {
           this.stations = data;
           console.log(data);
+          this.search=false;
         },
         error: (e) => console.error(e)
       });
@@ -33,6 +37,7 @@ export class StationListComponent implements OnInit {
 
   refreshList(): void {
     this.retrieveStations();
+    this.search=false;
     this.currentStation = {};
     this.currentIndex = -1;
   }
@@ -61,10 +66,18 @@ export class StationListComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.stations = data;
+          this.search=true;
+          this.searchResult = data;
           console.log(data);
         },
-        error: (e) => console.error(e)
+        error: (e) => {
+          this.searchResult='-1';
+          this.search=false;
+          console.log(this.searchResult);
+          console.error(e)
+        }
       });
+
   }
 
 }
