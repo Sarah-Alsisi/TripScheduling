@@ -15,6 +15,8 @@ import {StationListComponent} from './components/station/station-list/station-li
 import {StationDetailsComponent} from "./components/station/station-details/station-details.component";
 import {AddTripComponent} from "./components/trip/add-trip/add-trip.component";
 import {AddStationComponent} from "./components/station/add-station/add-station.component";
+import {TripDetailsComponent} from "./components/trip/trip-details/trip-details.component";
+import {TripListComponent} from "./components/trip/trip-list/trip-list.component";
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import {AddStationComponent} from "./components/station/add-station/add-station.
     StationListComponent,
     StationDetailsComponent,
     AddTripComponent,
-    AddStationComponent
+    AddStationComponent,
+    TripDetailsComponent,
+    TripListComponent
   ],
   imports: [
     BrowserModule,

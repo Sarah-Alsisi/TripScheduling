@@ -10,6 +10,8 @@ import {StationDetailsComponent} from "./components/station/station-details/stat
 import {AddTripComponent} from "./components/trip/add-trip/add-trip.component";
 import {AddStationComponent} from "./components/station/add-station/add-station.component";
 import {AddTutorialComponent} from "./components/tutorial/add-tutorial/add-tutorial.component";
+import {TripListComponent} from "./components/trip/trip-list/trip-list.component";
+import {TripDetailsComponent} from "./components/trip/trip-details/trip-details.component";
 
 const routes: Routes = [
   { path: '', component: IndexComponent},
@@ -17,8 +19,9 @@ const routes: Routes = [
   { path: 'success', component: ConfirmComponent},
   { path: 'tutorials', component: TutorialsListComponent },
   { path: 'stations', component: StationListComponent },
-  //{ path: 'trips', component: TripComponent },
+  { path: 'trips', component: TripListComponent },
   { path: 'stations/get/:id', component: StationDetailsComponent },
+  { path: 'trips/get/:id', component: TripDetailsComponent },
   { path: 'tutorials/:id', component: TutorialDetailsComponent },
   { path: 'add', component: AddTutorialComponent },
   { path: 'add/trip', component: AddTripComponent },

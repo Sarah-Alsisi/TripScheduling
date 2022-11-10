@@ -1,0 +1,101 @@
+<div *ngIf="viewMode; else editable">
+  <div *ngIf="currentTrip.id">
+    <h4>Trip</h4>
+    <div>
+      <label><strong>Id:</strong></label> {{ currentTrip.id }}
+    </div>
+    <div>
+      <label><strong>start_time:</strong></label>
+      {{ currentTrip.start_time }}
+    </div>
+    <div>
+      <label><strong>end_time:</strong></label>
+      {{ currentTrip.end_time }}
+    </div>
+    <div>
+      <label><strong>From_station:</strong></label>
+      {{ currentTrip.from_station.name  }}
+    </div>
+    <div>
+      <label><strong>To_station:</strong></label>
+      {{ currentTrip.to_station.name  }}
+    </div>
+
+    <a
+      class="badge badge-warning"
+      routerLink="/trips/get/{{ currentTrip.id }}"
+    >
+      Edit
+    </a>
+  </div>
+
+  <div *ngIf="!currentTrip">
+    <br />
+    <p>Please click on a Trip...</p>
+  </div>
+</div>
+
+<ng-template #editable>
+  <div *ngIf="currentTrip.id" class="edit-form">
+    <h4>Trip</h4>
+    <form>
+      <div class="form-group">
+        <label for="start_time">start_time</label>
+        <input
+          type="text"
+          class="form-control"
+          id="start_time"
+          [(ngModel)]="currentTrip.start_time"
+          name="start_time"
+        />
+      </div>
+      <div class="form-group">
+        <label for="end_time">end_time</label>
+        <input
+          type="text"
+          class="form-control"
+          id="end_time"
+          [(ngModel)]="currentTrip.end_time"
+          name="end_time"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>From Station</label><br>
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="currentTrip.from_station.id" [ngModelOptions]="{standalone: true}">
+          <option *ngFor="let station of stations" [value]="station.id" >
+            {{station.name}}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>To Station</label><br>
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="currentTrip.to_station.id" [ngModelOptions]="{standalone: true}">
+          <option *ngFor="let station of stations" [value]="station.id">
+            {{station.name}}
+          </option>
+        </select>
+      </div>
+
+    </form>
+
+    <button class="badge badge-danger mr-2" (click)="deleteTrip()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="badge badge-success mb-2"
+      (click)="updateTrip()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentTrip.id">
+    <br />
+    <p>Cannot access this Trip...</p>
+  </div>
+</ng-template>
