@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Trip} from "../models/trip.model";
-import {environment} from "../../environments/environment.prod";
+import {environment} from "../../environments/environment";
+
+const baseUrl = 'http://localhost:'+environment.apiUrl+'/api/trip';
 
 @Injectable({
   providedIn: 'root'
@@ -12,31 +14,31 @@ export class TripService {
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Trip[]> {
-    return this.http.get<Trip[]>(`${environment.tripsUrl}/get`);
+    return this.http.get<Trip[]>(`${baseUrl}/get`);
   }
 
   get(id: any): Observable<Trip> {
-    return this.http.get<Trip>(`${environment.tripsUrl}/get/${id}`);
+    return this.http.get<Trip>(`${baseUrl}/get/${id}`);
   }
 
   create(data: any): Observable<any> {
-    return this.http.post(`${environment.tripsUrl}/create`, data);
+    return this.http.post(`${baseUrl}/create`, data);
   }
 
   update(id: any, data: any): Observable<any> {
-    return this.http.put(`${environment.tripsUrl}/update/${id}`, data);
+    return this.http.put(`${baseUrl}/update/${id}`, data);
   }
 
   delete(id: any): Observable<any> {
-    return this.http.delete(`${environment.tripsUrl}/delete/${id}`);
+    return this.http.delete(`${baseUrl}/delete/${id}`);
   }
 
   deleteAll(): Observable<any> {
-    return this.http.delete(`${environment.tripsUrl}/delete`);
+    return this.http.delete(`${baseUrl}/delete`);
   }
 
   findById(id: any): Observable<Trip[]> {
-    return this.http.get<Trip[]>(`${environment.tripsUrl}/get/${id}`);
+    return this.http.get<Trip[]>(`${baseUrl}/get/${id}`);
   }
 
 }
