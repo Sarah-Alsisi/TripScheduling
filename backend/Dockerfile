@@ -11,6 +11,6 @@ EXPOSE 8080
 ENTRYPOINT ["mvn","spring-boot:run"]
 
 #1. cd .\backend\
-#2. cd .\backend\
+#2. docker build -t mybackend-image .
 #3. docker run -it -p 8080:8080 --name mybackend-container mybackend-image
 #-e db_port/db_name/db_password = sent to the mydb-container
